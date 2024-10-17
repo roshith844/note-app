@@ -1,0 +1,104 @@
+<section
+  class="flex bg-slate-900 bg-opacity-30 backdrop-blur-sm fixed top-0 left-0 h-screen w-full"
+>
+  <form
+    #listForm
+    [formGroup]="listSubmitForm"
+    (ngSubmit)="onSubmit()"
+    class="mt-[10%] m-auto bg-white shadow-md rounded min-w-[90%] md:min-w-[70%] lg:min-w-[60%] md:max-w-md max-h-[80%] p-3 sm:p-6"
+  >
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="title">
+        Title
+      </label>
+      <input
+        formControlName="title"
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="title"
+        type="text"
+        placeholder="Title"
+      />
+      <span
+        *ngIf="
+          title &&
+          ((title.invalid && title.touched) ||
+            (showAllValidationMessages && title.invalid))
+        "
+        class="text-red-600"
+        >Title is Required</span
+      >
+    </div>
+
+    <div class="flex justify-between items-center p-1">
+      <label class="block text-gray-700 text-sm font-bold mb-2"> Note </label>
+      <button
+        type="button"
+        (click)="addList()"
+        class="inline-block align-baseline font-bold text-base text-blue-500 hover:text-blue-800"
+      >
+        Add List Item
+      </button>
+    </div>
+
+    <div id="list" class="overflow-y-auto max-h-[14rem]">
+      <div
+        formArrayName="list"
+        *ngFor="let item of listControls.controls; let i = index"
+      >
+        <div [formGroupName]="i" class="flex gap-2 items-center justify-center">
+          <input
+            #checkbox
+            type="checkbox"
+            formControlName="strike"
+            class="h-5 w-5 mb-3 flex-shrink-0"
+          />
+          <input
+            formControlName="content"
+            name=""
+            id="note"
+            class="{{ checkbox.checked ? 'line-through' : '' }}
+            shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+            placeholder="Take a note..."
+          />
+
+          <!-- Close button -->
+          <svg
+            (click)="removeListItemFromForm(i)"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none "
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6 mb-3"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+          <br />
+        </div>
+      </div>
+    </div>
+
+    <span class="text-red-600" *ngIf="showListValidationMessage"
+      >Atleast One list Item is Required</span
+    >
+
+    <div class="flex items-center justify-between">
+      <button
+        class="bg-blue-500 disabled:bg-blue-300 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        type="submit"
+      >
+        Submit
+      </button>
+      <a
+        (click)="this.closeListForm.emit()"
+        class="inline-block align-baseline font-bold text-base text-blue-500 hover:text-blue-800"
+      >
+        close
+      </a>
+    </div>
+  </form>
+</section>
