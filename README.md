@@ -1,13 +1,18 @@
 # Note App
 
-This is a **Note App** built using **Angular** within an **Nx workspace**. The app allows users to create, manage, and store notes effectively. Nx provides a smart, fast, and extensible build system, helping to manage the development process efficiently.
+This is a **Note App** built using **Angular** within an **Nx workspace**. The app allows users to create, manage, and store notes efficiently. Nx provides a smart, fast, and extensible build system, making development smooth and scalable.
+
+## Live Demo
+
+You can access the live version of the app here:  
+**[Note App - Live Demo](https://roshith844.github.io/note-app/)**
 
 ## Features
 
 - Create, update, and delete notes
 - Responsive design for mobile and desktop devices
 - Organized folder structure using Nx
-- Fast build and serve processes using Nx's smart caching
+- Fast build and serve processes with Nx's smart caching
 
 ## Technologies Used
 
@@ -31,16 +36,4 @@ Before you start, ensure that you have the following installed:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/note-app.git
-
-
-
-
-## Start the app
-
-To start the development server run `npx nx serve note-app`. Open your browser and navigate to http://localhost:4200/. Happy coding!
-
-
-## Ready to deploy?
-
-Just run `nx build demoapp` to build the application. The build artifacts will be stored in the `dist/` directory, ready to be deployed.
+   git clone https://github.com/roshith844/note-app.git
