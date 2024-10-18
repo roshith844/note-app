@@ -42,6 +42,13 @@
   <!-- cards -->
   <div class="flex flex-wrap justify-center">
     <!-- Text cards -->
+    <ng-container *ngIf="this.noteDataService.getAllNotes().length === 0">
+      <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3 w-full" role="alert">
+        <p class="font-bold">No Notes Yet</p>
+        <p class="text-sm"> Create your first note to get started! </p>
+      </div>
+     </ng-container>
+     
     <div *ngFor="
         let note of this.noteDataService.getAllNotes();
         index as noteIndex
