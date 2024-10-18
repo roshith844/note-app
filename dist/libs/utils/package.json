@@ -1,0 +1,11 @@
+{
+  "name": "@cnm/utils",
+  "version": "0.0.1",
+  "type": "commonjs",
+  "peerDependencies": {
+    "@app/models": "0.0.1",
+    "tslib": "2.5.3"
+  },
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts"
+}
