@@ -31,9 +31,3 @@ Before you start, ensure that you have the following installed:
 - **Node.js**: >= 12.20.0
 - **npm**: >= 6.14.0
 - **Nx CLI**: To install globally, run `npm install -g nx`
-
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/roshith844/note-app.git
